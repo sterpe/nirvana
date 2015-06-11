@@ -13,12 +13,14 @@ module.exports = function (filename, RANGE, SRC, TGT, bashEscape) {
 	
 	
 	edCommands.push('w');
-	edCommands.push('p');
+	edCommands.push(',p');
 	edCommands.push('q');
-	console.log(edCommands);
+	for (i = 0; i < edCommands.length; i++) {
+		console.log("%d:	%s", i, edCommands[i]);
+	}
 	exec('printf \'%s\n\' ' +
 		edCommands.join(" ") +
-		" | gned " + filename, function (err, stdout, stderr) {
+		" | /bin/ed " + filename, function (err, stdout, stderr) {
 			console.log("stdout: ", stdout);
 			console.log("stderr: ", stderr);
 			if (err !== null) {
