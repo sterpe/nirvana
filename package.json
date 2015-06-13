@@ -16,7 +16,7 @@
     "temporary": "0.0.8"
   },
   "bin": {
-    "nirvana": "cmd.js"
+    "nirvana": "bin/cmd.js"
   },
   "devDependencies": {},
   "repository": {
