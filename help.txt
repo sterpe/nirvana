@@ -1,0 +1,12 @@
+Usage:
+	$0 replacments.tsv file [options]
+
+Options:
+	-h, --help		print usage information
+	-v, --version		show version info and exit
+	-o, --outfile		write output to the specified file
+	-x, --xml		run `xmllint --format` on the file before executing replacements.
+	-c, --clean		clean the RE column with a replacement pair
+				i.e., -c '["&#229;", "å"]'
+				NOTE: must be valid JSON and properly escaped 
+				per Javacript RegExp constructor rules.
