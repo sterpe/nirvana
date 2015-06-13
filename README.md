@@ -6,8 +6,9 @@ Easily execute scripted search and replace commands in-place with `ed`.
 
 Where a replacements.tsv file looks like this:
 
-ADDRESS	RE	REPLACEMENT	FLAGS
-,	foo	bar	2
+ADDRESS |	RE	|	REPLACEMENT	|	FLAGS
+---|---|---|---
+,	|	foo	|	bar	|	2
 
 The program will escape whitespace and other relevant characters in both the 
 RE and REPLACEMENT columns, so no special regex commands like `,s/foo/&&/g` etc.
