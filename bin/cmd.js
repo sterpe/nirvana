@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 var argv = require('minimist-cheatsheet')({
 	string: ['outfile']
-	, boolean: ['xml']
-	, alias: { h: 'help', v: 'version', o: 'outfile', c: 'clean', x: 'xml' }
+	, boolean: ['xml', 'skip-first-row']
+	, alias: { h: 'help', v: 'version', o: 'outfile', c: 'clean', x: 'xml', s: 'skip-first-row' }
 })
 , path = require('path')
 , fs = require('fs')
@@ -19,8 +19,11 @@ if (argv._.length !== 2) {
 	process.exit();
 }
 if (argv.clean) {
+	if (Object.prototype.toString.call(argv.clean) !== '[object Array]') {
+		argv.clean = [argv.clean];
+	}
 	for (i = 0; i < argv.clean.length; ++i) {
 		clean[i] = JSON.parse(argv.clean[i]);
 	}
 }
-require('../main')(argv._[0], argv._[1], argv.outfile, { isXML: argv.xml, clean: clean });
+require('../main')(argv._[0], argv._[1], argv.outfile, { isXML: argv.xml, clean: clean, skip: argv['skip-first-row'] });
