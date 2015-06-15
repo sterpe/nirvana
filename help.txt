@@ -6,6 +6,7 @@ Options:
 	-v, --version		show version info and exit
 	-o, --outfile		write output to the specified file
 	-x, --xml		run `xmllint --format` on the file before executing replacements.
+	-s, skip-first-row	skip the first line in the tsv file, default is false.
 	-c, --clean		clean the RE column with a replacement pair
 				i.e., -c '["&#229;", "å"]'
 				NOTE: must be valid JSON and properly escaped 
